@@ -6,6 +6,15 @@ h1 {
 
 }
 
+label {
+    text-align: left;
+    font-family: "Segoe UI", sans-serif;
+    font-weight: normal;
+    color: white;
+
+}
+
+
 * {box-sizing: border-box;}
 
 body {
