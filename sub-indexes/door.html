@@ -100,32 +100,37 @@ body {
 		<script type="module" src="../scripts/script.js"></script>
 		
 		<script>
-        function clickButton() {
-            const text = document.getElementById("button-text");
-            const door = document.getElementById("door");
-            
-            if (text.textContent === "Open Door") {
-                text.textContent = "Close Door";
-				door.src = '../resources/images/open door.png'; 
-            } else {
-                text.textContent = "Open Door";
-                door.src = '../resources/images/closed door.png';
-            }
-        }
+        function clickButton() {
+            const text = document.getElementById("button-text");
+            const door = document.getElementById("door");
+		const opendoor = new Audio('../resources/audios/opening door.mp3');
+		const closedoor = new Audio('../resources/audios/closed door.mp3');         
+		      
+
+            if (text.textContent === "Open Door") {
+                text.textContent = "Close Door";
+				door.src = '../resources/images/open door.png'; 
+				opendoor.play();
+            } else {
+                text.textContent = "Open Door";
+                door.src = '../resources/images/closed door.png';
+			closedoor.play();
+			
+            }
+			return false;
+        }
 		
 		function clickDoor() {
 			const text = document.getElementById("button-text");
-			const door = document.getElementById("door");
+			const sound = new Audio('../resources/audios/door knock.wav');
 			
 			if (text.textContent === 'Close Door') {
 				window.location.href = 'vault.html';
+			} else {
+				sound.play();
 			}
-			
-			else {
-				return false;
-			}
-		}
-        </script>
+        }
+        </script>
     </body>
 
 </html>
